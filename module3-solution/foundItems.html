@@ -1,0 +1,7 @@
+<h3>{{ Found }}</h3>
+<ol>
+  <li ng-repeat="item in narrow.machedItems">
+    {{item.name}}, {{item.short_name}}, {{item.description}} -
+    <button ng-click="narrow.removeItem($index);">Don't want this one!</button>
+  </li>
+</ol>
