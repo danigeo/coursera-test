@@ -1,0 +1,43 @@
+<div class="container">
+  <div ng-if="!signupCtrl.isRegistered">
+    Sign up here for newsletter
+    <form name="signupForm" novalidate>
+      <div>
+        <div>First name</div>
+        <div><input style="color: black" autocomplete="off" type="text" name="First" ng-model="signupCtrl.First" required/>
+        </div>
+        <div ng-show="signupForm.First.$invalid && !signupForm.First.$pristine" class="help-block">Required</div>
+      </div>
+      <div>
+        <div >Last name</div>
+        <div ><input style="color: black" autocomplete="off" type="text" name="Last" ng-model="signupCtrl.Last" required/></div>
+        <div  ng-show="signupForm.Last.$invalid && !signupForm.Last.$pristine" class="help-block">Required</div>
+      </div>
+      <div >
+        <div >Mail</div>
+        <div ><input style="color: black" autocomplete="off" type="email" name="Email" ng-model="signupCtrl.Email" required/>@</div>
+        <div  ng-show="signupForm.Email.$invalid && !signupForm.Email.$pristine" class="help-block">Insert a valid mail</div>
+      </div>
+      <div>
+        <div >Phone</div>
+        <div ><input style="color: black" autocomplete="off" type="text" name="Phone" ng-model="signupCtrl.Phone" required/></div>
+        <div  ng-show="signupForm.Phone.$invalid && !signupForm.Phone.$pristine" class="help-block">Required</div>
+      </div>
+
+      <div>
+        <div >Favourite menu item</div>
+        <div ><input menu-item-validator style="color: black" autocomplete="off" type="text" name="Favourite"
+          ng-model="signupCtrl.Favourite" required/></div>
+        <div ng-show="!signupForm.Favourite.$error.asyncValidator && signupForm.Favourite.$invalid && !signupForm.Favourite.$pristine" class="help-block">Required</div>
+        <div ng-if="signupForm.Favourite.$pending">Checking...</div>
+        <div  ng-show="signupForm.Favourite.$error.asyncValidator" class="help-block">No such menu number exists</div>
+      </div>
+
+      <button style="color: black" class="btn btn-primary" type="submit" ng-disabled="signupForm.$invalid || signupForm.Favourite.$pending" ng-click="signupCtrl.submitForm(signupForm.$valid)">Submit</button>
+
+    </form>
+  </div>
+  <div ng-if="signupCtrl.isRegistered">
+     Your information has been saved
+  </div>
+</div>

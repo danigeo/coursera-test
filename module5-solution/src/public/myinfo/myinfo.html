@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div ng-if="!myinfoCtrl.getUser.isRegistered">
+      Not Signed Up Yet.
+      <a ui-sref="public.signup">Sign up Now!</a>
+    </div>
+
+    <div ng-if="myinfoCtrl.getUser.isRegistered">
+        <div style="display: flex;">
+            <div style="flex:1">First</div>
+            <div style="flex:2">{{myinfoCtrl.getUser.user.first}} </div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex:1">Last</div>
+            <div style="flex:2">{{myinfoCtrl.getUser.user.last}} </div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex:1">Mail</div>
+            <div style="flex:2">{{myinfoCtrl.getUser.user.mail}} </div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex:1">Phone</div>
+            <div style="flex:2">{{myinfoCtrl.getUser.user.phone}} </div>
+        </div>
+        <div style="display: flex;">
+            <div style="flex:1">Favourite</div>
+            <div style="flex:2">
+                {{myinfoCtrl.favourite.name}}<br/><br/>
+                <img ng-src="https://danigeo1.herokuapp.com/images/{{myinfoCtrl.favourite.short_name}}.jpg"/>
+                {{myinfoCtrl.favourite.description}}<br/><br/>
+            </div>
+        </div>
+    </div>
+</div>
