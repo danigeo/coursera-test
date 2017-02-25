@@ -2,7 +2,7 @@
 "use strict";
 
 angular.module('common', [])
-.constant('ApiPath', 'http://danigeo1.herokuapp.com')
+.constant('ApiPath', 'https://danigeo1.herokuapp.com')
 
 .config(config);
 
